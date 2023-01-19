@@ -4,6 +4,14 @@ const port1 = 3000;
 const port2 = 4000;
 let calculatorRoute = require("./routes/calculatorRoute");
 
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
+app.use(
+'/api-docs',
+swaggerUi.serve,
+swaggerUi.setup(swaggerDocument)
+);
+
 app.use("/calculator", calculatorRoute);
 
 app.get("/", (req, res) => {
