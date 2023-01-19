@@ -1,9 +1,13 @@
+const Logger = require('./logging')
+
+
 class Calculator {
   constructor() {
-    this.id = Math.floor(Math.random() * 100) + 1;
+      this.id = Math.floor(Math.random() * 100) + 1;
+      this.Logger = new Logger()
     }
   #log = (value) => {
-    console.log(`[Calculator:${this.id}]:${value}`);
+      this.Logger.log(this.id, value)
   };
   add(num1, num2) {
     const value = num1 + num2;
